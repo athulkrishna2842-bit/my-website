@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Dashboard</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    padding: 25px;
+    font-size: 28px;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    width: 220px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255,255,255,0.2);
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: 20px;
+    animation: fade 0.6s ease;
+}
+
+/* Boxes */
+.box {
+    background: rgba(255,255,255,0.1);
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.box:hover {
+    background: rgba(255,255,255,0.25);
+    transform: scale(1.05);
+}
+
+/* Back button */
+.back {
+    margin: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #00c6ff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+</head>
+<body>
+
+<h1 class="title">🚀 Learning Dashboard</h1>
+
+<!-- HOME -->
+<div id="home" class="container">
+
+<div class="card" onclick="openPage('maths')">📘 Maths</div>
+
+<div class="card" onclick="openPage('science')">🔬 Science</div>
+
+<div class="card" onclick="openPage('english')">📖 English</div>
+
+<div class="card" onclick="openPage('social')">🌍 Social Science</div>
+
+</div>
+
+<!-- MATHS -->
+<div id="maths" class="section">
+<button class="back" onclick="goHome()">⬅ Back</button>
+<h2>📘 Maths</h2>
+<div class="container">
+<div class="box">Algebra</div>
+<div class="box">Geometry</div>
+<div class="box">Trigonometry</div>
+</div>
+</div>
+
+<!-- SCIENCE -->
+<div id="science" class="section">
+<button class="back" onclick="goHome()">⬅ Back</button>
+<h2>🔬 Science</h2>
+<div class="container">
+<div class="box">🧬 Biology</div>
+<div class="box">⚛️ Physics</div>
+<div class="box">🧪 Chemistry</div>
+</div>
+</div>
+
+<!-- ENGLISH -->
+<div id="english" class="section">
+<button class="back" onclick="goHome()">⬅ Back</button>
+<h2>📖 English</h2>
+<div class="container">
+<div class="box">Grammar</div>
+<div class="box">Writing</div>
+<div class="box">Reading</div>
+</div>
+</div>
+
+<!-- SOCIAL -->
+<div id="social" class="section">
+<button class="back" onclick="goHome()">⬅ Back</button>
+<h2>🌍 Social Science</h2>
+<div class="container">
+<div class="box">🏺 History</div>
+<div class="box">🗺️ Geography</div>
+<div class="box">🏛️ Politics</div>
+</div>
+</div>
+
+<script>
+function openPage(page) {
+    document.getElementById("home").style.display = "none";
+
+    let sections = document.querySelectorAll(".section");
+    sections.forEach(sec => sec.style.display = "none");
+
+    document.getElementById(page).style.display = "block";
+}
+
+function goHome() {
+    document.getElementById("home").style.display = "flex";
+
+    let sections = document.querySelectorAll(".section");
+    sections.forEach(sec => sec.style.display = "none");
+}
+</script>
+
+</body>
+</html>
